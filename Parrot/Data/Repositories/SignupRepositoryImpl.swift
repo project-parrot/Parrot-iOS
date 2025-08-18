@@ -16,6 +16,8 @@ final class SignupRepositoryImpl: SignupRepository {
             throw RequestError.invalidURL(message: "Failed to retrieve the signup URL. Please check APIEndpoints.plist or configuration.")
         }
         
+        try Task.checkCancellation()
+        
         let dto = try await dataSource.request(
             endpoint,
             method: .post,
