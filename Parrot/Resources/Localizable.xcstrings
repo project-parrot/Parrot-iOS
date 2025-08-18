@@ -1,0 +1,139 @@
+{
+  "sourceLanguage" : "ko",
+  "strings" : {
+    " " : {
+
+    },
+    "5~20자의 영문과 숫자를 조합해 주세요." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please use a combination of letters and numbers between 5 and 20 characters."
+          }
+        }
+      }
+    },
+    "닉네임" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nickname"
+          }
+        }
+      }
+    },
+    "닉네임은 최소 2자, 최대 30자까지 입력할 수 있어요." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your nickname must be between 2 and 30 characters long."
+          }
+        }
+      }
+    },
+    "비밀번호" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        }
+      }
+    },
+    "비밀번호 확인" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password Confirmation"
+          }
+        }
+      }
+    },
+    "비밀번호가 일치하지 않아요." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passwords do not match."
+          }
+        }
+      }
+    },
+    "숫자와 하이픈(-)을 포함한 올바른 형식의 전화번호를 입력해 주세요." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a valid phone number using only numbers and hyphens (-)."
+          }
+        }
+      }
+    },
+    "완료" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "유효한 이메일 주소를 입력해주세요." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a valid email address."
+          }
+        }
+      }
+    },
+    "이메일" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
+    },
+    "전화번호" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phone number"
+          }
+        }
+      }
+    },
+    "회원가입" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signup"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}
