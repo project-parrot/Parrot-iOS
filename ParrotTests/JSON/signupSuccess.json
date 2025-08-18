@@ -1,0 +1,8 @@
+{
+  "success": true,
+  "code": 201,
+  "message": null,
+  "data": {
+    "userId": 1
+  }
+}
