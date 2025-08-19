@@ -132,7 +132,7 @@ extension SignupModel {
     //MARK: - Validate Password
     
     func validate(password: String) {
-        let regex = #"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,20}$"#
+        let regex = #"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+=-]{5,20}$"#
         
         isShowingPasswordFootnote = !validateInput(password, regex: regex)
     }
