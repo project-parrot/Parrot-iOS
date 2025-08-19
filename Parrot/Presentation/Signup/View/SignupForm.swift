@@ -9,6 +9,9 @@ import SwiftUI
 
 struct SignupForm: View {
     @State private var signupModel: SignupModel = .init()
+    @State private var isSuccessAlertPresented: Bool = false
+    @State private var isFailureAlertPresented: Bool = false
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         Form {
@@ -17,7 +20,7 @@ struct SignupForm: View {
                     Text("이메일")
                 }
             } footer: {
-                Text(signupModel.isShowingEmailFootnote ? "유효한 이메일 주소를 입력해주세요." : " ")
+                Text(signupModel.isShowingEmailFootnote ? "유효한 이메일 주소를 입력해 주세요." : " ")
                     .font(.footnote)
                     .foregroundStyle(.red)
             }
@@ -69,10 +72,33 @@ struct SignupForm: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    signupModel.signup()
+                    if signupModel.isSignupAvailable {
+                        signupModel.signup {
+                            isSuccessAlertPresented.toggle()
+                        }
+                    } else {
+                        isFailureAlertPresented.toggle()
+                    }
                 } label: {
                     Text("완료")
                 }
+            }
+        }
+        .alert("회원가입 성공", isPresented: $isSuccessAlertPresented) {
+            Button("확인") {
+                dismiss()
+            }
+        } message: {
+            Text("회원가입이 완료되었습니다.")
+        }
+        .alert("회원가입 실패", isPresented: $isFailureAlertPresented) {
+            Button("확인", role: .cancel) {}
+        } message: {
+            Text("입력값을 다시 확인해주세요.")
+        }
+        .alert("회원가입 실패", isPresented: .constant(signupModel.signupErrorMessage != nil)) {
+            Button("확인", role: .cancel) {
+                signupModel.signupErrorMessage = nil
             }
         }
         .onDisappear {

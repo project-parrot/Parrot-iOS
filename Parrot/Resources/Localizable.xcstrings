@@ -90,6 +90,9 @@
         }
       }
     },
+    "유효한 이메일 주소를 입력해 주세요." : {
+
+    },
     "유효한 이메일 주소를 입력해주세요." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -112,13 +115,34 @@
         }
       }
     },
+    "입력값을 다시 확인해주세요." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check your input and try again."
+          }
+        }
+      }
+    },
     "전화번호" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Phone number"
+            "value" : "Phone Number"
+          }
+        }
+      }
+    },
+    "확인" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         }
       }
@@ -130,6 +154,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signup"
+          }
+        }
+      }
+    },
+    "회원가입 성공" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign Up Successful"
+          }
+        }
+      }
+    },
+    "회원가입 실패" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign-up Failed"
+          }
+        }
+      }
+    },
+    "회원가입이 완료되었습니다." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have successfully signed up."
           }
         }
       }

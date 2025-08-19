@@ -71,15 +71,21 @@ final class SignupModel {
     
     var isShowingNicknameFootnote: Bool = false
     
+    //MARK: - Sign Up Error Properties
+    
+    var signupErrorMessage: String?
+    
     //MARK: - Signup Method
     
-    func signup() {
+    func signup(onSuccess: @escaping () -> Void) {
         task = Task {
             do {
                 let params = makeParameters()
                 try await repository.signup(with: params)
+                onSuccess()
             } catch {
                 print(error)
+                signupErrorMessage = extractErrorMessage(from: error)
             }
         }
     }
@@ -92,6 +98,20 @@ final class SignupModel {
             "nickname": nickname
         ]
     }
+    
+    private func extractErrorMessage(from error: Error) -> String? {
+        if let requestError = error as? RequestError {
+            switch requestError {
+            case .serverError(_, let message):
+                return message
+            case .invalidURL(let message):
+                return message
+            }
+        }
+        
+        return error.localizedDescription
+    }
+    
 }
 
 extension SignupModel {
@@ -139,4 +159,21 @@ extension SignupModel {
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
         return predicate.evaluate(with: input)
     }
+    
+}
+
+extension SignupModel {
+    var isSignupAvailable: Bool {
+        return !email.isEmpty &&
+               !password.isEmpty &&
+               !passwordConfirmation.isEmpty &&
+               !phone.isEmpty &&
+               !nickname.isEmpty &&
+               !isShowingEmailFootnote &&
+               !isShowingPasswordFootnote &&
+               !isShowingPasswordConfirmationFootnote &&
+               !isShowingPhoneFootnote &&
+               !isShowingNicknameFootnote
+    }
+    
 }
