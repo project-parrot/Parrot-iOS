@@ -81,7 +81,7 @@ struct SignupForm: View {
                             isFailureAlertPresented.toggle()
                         }
                     } label: {
-                        Text("완료")
+                        Text("다음")
                     }
                 }
             }

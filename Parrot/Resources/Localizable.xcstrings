@@ -36,6 +36,17 @@
         }
       }
     },
+    "다음" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
     "비밀번호" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -80,21 +91,7 @@
         }
       }
     },
-    "완료" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next"
-          }
-        }
-      }
-    },
     "유효한 이메일 주소를 입력해 주세요." : {
-
-    },
-    "유효한 이메일 주소를 입력해주세요." : {
-      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
