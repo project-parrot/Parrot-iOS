@@ -71,14 +71,20 @@ final class SignupModel {
     
     var isShowingNicknameFootnote: Bool = false
     
-    //MARK: - Sign Up Error Properties
+    //MARK: - Sign Up Properties
     
     var signupErrorMessage: String?
+    
+    var isLoading: Bool = false
     
     //MARK: - Signup Method
     
     func signup(onSuccess: @escaping () -> Void) {
+        isLoading = true
+        
         task = Task {
+            defer { isLoading = false }
+            
             do {
                 let params = makeParameters()
                 try await repository.signup(with: params)
