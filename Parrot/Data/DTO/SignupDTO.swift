@@ -12,7 +12,7 @@ struct SignupDTO: Decodable {
     let success: Bool
     let code: Int
     let message: String?
-    let data: SignupResponseData
+    let data: SignupResponseData?
 }
 
 // MARK: - SignupResponseData

@@ -9,10 +9,23 @@
 /* Begin PBXBuildFile section */
 		8E9CDFFD2E51B22F000BC193 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9CDFFC2E51B22F000BC193 /* Alamofire */; };
 		8E9CE0002E51B240000BC193 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9CDFFF2E51B240000BC193 /* Factory */; };
+		8EF5610D2E52FE1500BC8825 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF5610C2E52FE1500BC8825 /* Alamofire */; };
+		8EF5610F2E52FE1500BC8825 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF5610E2E52FE1500BC8825 /* Factory */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8EF560F22E52EAE200BC8825 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8ED4F2662E4F300600BFBBB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8ED4F26D2E4F300600BFBBB3;
+			remoteInfo = Parrot;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8ED4F26E2E4F300600BFBBB3 /* Parrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EF560EE2E52EAE200BC8825 /* ParrotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParrotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -34,6 +47,11 @@
 			path = Parrot;
 			sourceTree = "<group>";
 		};
+		8EF560EF2E52EAE200BC8825 /* ParrotTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ParrotTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +64,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8EF560EB2E52EAE200BC8825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EF5610D2E52FE1500BC8825 /* Alamofire in Frameworks */,
+				8EF5610F2E52FE1500BC8825 /* Factory in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -53,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				8ED4F2702E4F300600BFBBB3 /* Parrot */,
+				8EF560EF2E52EAE200BC8825 /* ParrotTests */,
+				8EF560FE2E52F54500BC8825 /* Frameworks */,
 				8ED4F26F2E4F300600BFBBB3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,8 +90,16 @@
 			isa = PBXGroup;
 			children = (
 				8ED4F26E2E4F300600BFBBB3 /* Parrot.app */,
+				8EF560EE2E52EAE200BC8825 /* ParrotTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8EF560FE2E52F54500BC8825 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,6 +129,31 @@
 			productReference = 8ED4F26E2E4F300600BFBBB3 /* Parrot.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8EF560ED2E52EAE200BC8825 /* ParrotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8EF560F42E52EAE200BC8825 /* Build configuration list for PBXNativeTarget "ParrotTests" */;
+			buildPhases = (
+				8EF560EA2E52EAE200BC8825 /* Sources */,
+				8EF560EB2E52EAE200BC8825 /* Frameworks */,
+				8EF560EC2E52EAE200BC8825 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8EF560F32E52EAE200BC8825 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8EF560EF2E52EAE200BC8825 /* ParrotTests */,
+			);
+			name = ParrotTests;
+			packageProductDependencies = (
+				8EF5610C2E52FE1500BC8825 /* Alamofire */,
+				8EF5610E2E52FE1500BC8825 /* Factory */,
+			);
+			productName = ParrotTests;
+			productReference = 8EF560EE2E52EAE200BC8825 /* ParrotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,11 +161,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					8ED4F26D2E4F300600BFBBB3 = {
 						CreatedOnToolsVersion = 16.4;
+					};
+					8EF560ED2E52EAE200BC8825 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 8ED4F26D2E4F300600BFBBB3;
 					};
 				};
 			};
@@ -127,12 +193,20 @@
 			projectRoot = "";
 			targets = (
 				8ED4F26D2E4F300600BFBBB3 /* Parrot */,
+				8EF560ED2E52EAE200BC8825 /* ParrotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8ED4F26C2E4F300600BFBBB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8EF560EC2E52EAE200BC8825 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -149,7 +223,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8EF560EA2E52EAE200BC8825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8EF560F32E52EAE200BC8825 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8ED4F26D2E4F300600BFBBB3 /* Parrot */;
+			targetProxy = 8EF560F22E52EAE200BC8825 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8ED4F2822E4F300700BFBBB3 /* Debug */ = {
@@ -343,6 +432,58 @@
 			};
 			name = Release;
 		};
+		8EF560F52E52EAE200BC8825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QHK65XFL8U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeonghun.ParrotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parrot.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Parrot";
+			};
+			name = Debug;
+		};
+		8EF560F62E52EAE200BC8825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QHK65XFL8U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeonghun.ParrotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parrot.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Parrot";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -360,6 +501,15 @@
 			buildConfigurations = (
 				8ED4F2822E4F300700BFBBB3 /* Debug */,
 				8ED4F2832E4F300700BFBBB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8EF560F42E52EAE200BC8825 /* Build configuration list for PBXNativeTarget "ParrotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8EF560F52E52EAE200BC8825 /* Debug */,
+				8EF560F62E52EAE200BC8825 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -392,6 +542,16 @@
 			productName = Alamofire;
 		};
 		8E9CDFFF2E51B240000BC193 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8E9CDFFE2E51B240000BC193 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+		8EF5610C2E52FE1500BC8825 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8E9CDFFB2E51B22F000BC193 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		8EF5610E2E52FE1500BC8825 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8E9CDFFE2E51B240000BC193 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
