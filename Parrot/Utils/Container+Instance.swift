@@ -23,4 +23,12 @@ extension Container {
             SignupRepositoryImpl()
         }
     }
+    
+    //MARK: - UseCase
+    
+    var createAccountUseCase: Factory<CreateAccountUseCase> {
+        Factory(self) {
+            CreateAccountUseCaseImpl()
+        }
+    }
 }

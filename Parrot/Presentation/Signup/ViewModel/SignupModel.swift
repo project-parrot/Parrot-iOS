@@ -11,7 +11,7 @@ import Foundation
 @Observable
 final class SignupModel {
     @ObservationIgnored
-    @Injected(\.signupRepository) private var repository
+    @Injected(\.createAccountUseCase) private var createAccountUseCase
     
     @ObservationIgnored
     var task: Task<Void, Never>?
@@ -87,7 +87,7 @@ final class SignupModel {
             
             do {
                 let params = makeParameters()
-                try await repository.signup(with: params)
+                try await createAccountUseCase.execute(using: params)
                 onSuccess()
             } catch {
                 print(error)
