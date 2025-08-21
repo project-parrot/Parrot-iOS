@@ -24,11 +24,23 @@ extension Container {
         }
     }
     
+    var loginRepository: Factory<LoginRepository> {
+        Factory(self) {
+            LoginRepositoryImpl()
+        }
+    }
+    
     //MARK: - UseCase
     
     var createAccountUseCase: Factory<CreateAccountUseCase> {
         Factory(self) {
             CreateAccountUseCaseImpl()
+        }
+    }
+    
+    var loginUseCase: Factory<LoginUseCase> {
+        Factory(self) {
+            LoginUseCaseImpl()
         }
     }
 }

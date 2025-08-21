@@ -11,3 +11,7 @@ enum RequestError: Error {
     case invalidURL(message: String)
     case serverError(code: Int, message: String)
 }
+
+enum AuthError: Error {
+    case missingToken
+}

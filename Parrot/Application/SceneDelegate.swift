@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScen = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScen)
-        self.window?.rootViewController = UIHostingController(rootView: LoginForm())
+        self.window?.rootViewController = UIHostingController(rootView: LoginForm(isLoggedIn: .constant(false)))
         window?.makeKeyAndVisible()
     }
 
