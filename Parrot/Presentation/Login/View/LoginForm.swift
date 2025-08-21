@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginForm: View {
-    @Bindable private var loginModel: LoginModel = .init()
+    @State private var loginModel: LoginModel = .init()
     @State private var isShowingSignupForm: Bool = false
     @State private var isShowingLoginErrorAlert: Bool = false
     @Binding var isLoggedIn: Bool
@@ -20,15 +20,54 @@ struct LoginForm: View {
                 .ignoresSafeArea()
             
             VStack {
-                emailField
+                HStack(spacing: 5) {
+                    Image(systemName: "at")
+                    
+                    TextField("이메일을 입력하세요.", text: $loginModel.email)
+                        .keyboardType(.emailAddress)
+                }
+                .padding()
+                .background(.white.opacity(0.4))
+                .cornerRadius(30)
                 
-                passwordField
+                HStack(spacing: 7) {
+                    Image(systemName: "lock.fill")
+                    
+                    SecureField("비밀번호를 입력하세요.", text: $loginModel.password)
+                        .keyboardType(.numbersAndPunctuation)
+                }
+                .padding(.vertical)
+                .padding(.leading, 18)
+                .padding(.trailing)
+                .background(.white.opacity(0.4))
+                .cornerRadius(30)
                 
-                loginButton
+                Button {
+                    loginModel.login {
+                        isLoggedIn = true
+                    } onFailure: {
+                        isShowingLoginErrorAlert.toggle()
+                    }
+                } label: {
+                    Text("로그인")
+                        .bold()
+                        .frame(maxWidth: .infinity)
+                        .padding(10)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.black)
+                .padding(.top)
                 
                 SectionSeparator()
                 
-                signupLink
+                NavigationLink {
+                    SignupForm()
+                } label: {
+                    Text("회원가입")
+                        .underline()
+                        .foregroundStyle(.white)
+                }
+                .padding(.top)
             }
             .padding()
             .alert("로그인 실패", isPresented: $isShowingLoginErrorAlert) {
@@ -63,68 +102,6 @@ fileprivate struct SectionSeparator: View {
                 .layoutPriority(1)
         }
         .foregroundStyle(.white)
-        .padding(.top)
-    }
-}
-
-// MARK: - Subviews
-fileprivate extension LoginForm {
-    var backgroundView: some View {
-        Image("LoginBackground")
-            .resizable()
-            .ignoresSafeArea()
-    }
-    
-    var emailField: some View {
-        HStack(spacing: 5) {
-            Image(systemName: "at")
-            
-            TextField("이메일을 입력하세요.", text: $loginModel.email)
-        }
-        .padding()
-        .background(.white.opacity(0.4))
-        .cornerRadius(30)
-    }
-    
-    var passwordField: some View {
-        HStack(spacing: 7) {
-            Image(systemName: "lock.fill")
-            
-            SecureField("비밀번호를 입력하세요.", text: $loginModel.password)
-        }
-        .padding(.vertical)
-        .padding(.leading, 18)
-        .padding(.trailing)
-        .background(.white.opacity(0.4))
-        .cornerRadius(30)
-    }
-    
-    var loginButton: some View {
-        Button {
-            loginModel.login {
-                isLoggedIn = true
-            } onFailure: {
-                isShowingLoginErrorAlert.toggle()
-            }
-        } label: {
-            Text("로그인")
-                .bold()
-                .frame(maxWidth: .infinity)
-                .padding(10)
-        }
-        .buttonStyle(.borderedProminent)
-        .tint(.black)
-        .padding(.top)
-    }
-    
-    var signupLink: some View {
-        NavigationLink {
-            SignupForm()
-        } label: {
-            Text("회원가입")
-                .underline()
-                .foregroundStyle(.white)
-        }
         .padding(.top)
     }
 }
