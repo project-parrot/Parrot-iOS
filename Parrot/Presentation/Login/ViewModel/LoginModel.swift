@@ -8,6 +8,7 @@
 import Factory
 import Foundation
 
+@MainActor
 @Observable
 final class LoginModel {
     var email: String = ""
