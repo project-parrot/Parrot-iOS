@@ -79,7 +79,7 @@ final class SignupModel {
     
     //MARK: - Signup Method
     
-    func signup(onSuccess: @escaping () -> Void) {
+    func signup(onSuccess: (() -> Void)? = nil) {
         isLoading = true
         
         task = Task {
@@ -88,7 +88,7 @@ final class SignupModel {
             do {
                 let params = makeParameters()
                 try await createAccountUseCase.execute(using: params)
-                onSuccess()
+                onSuccess?()
             } catch {
                 print(error)
                 signupErrorMessage = extractErrorMessage(from: error)
