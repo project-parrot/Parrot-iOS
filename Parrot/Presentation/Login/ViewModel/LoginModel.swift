@@ -24,7 +24,7 @@ final class LoginModel {
     @ObservationIgnored
     var task: Task<Void, Never>?
     
-    func login(onSuccess: @escaping () -> Void, onFailure: @escaping () -> Void) {
+    func login(onSuccess: (() -> Void)? = nil, onFailure: (() -> Void)? = nil) {
         isLoading = true
         
         task = Task {
@@ -34,14 +34,14 @@ final class LoginModel {
                 let loginResult = try await useCase.execute(using: createParameters())
                 
                 if loginResult {
-                    onSuccess()
+                    onSuccess?()
                 } else {
-                    onFailure()
+                    onFailure?()
                 }
             } catch {
                 print(error)
                 alertMessage = error.localizedDescription
-                onFailure()
+                onFailure?()
             }
         }
     }
