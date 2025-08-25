@@ -45,7 +45,7 @@ struct AuthTokenManager {
         return await withCheckedContinuation { continuation in
             DispatchQueue.global(qos: .userInteractive).async {
                 let saveQuery = baseQuery(for: type)
-                saveQuery[kSecValueData] = value
+                saveQuery[kSecValueData] = value.data(using: .utf8)!
                 
                 continuation.resume(returning: SecItemAdd(saveQuery, nil) == errSecSuccess)
             }
@@ -65,7 +65,19 @@ struct AuthTokenManager {
     func delete(_ type: TokenType) async -> Bool {
         return await withCheckedContinuation { continuation in
             DispatchQueue.global(qos: .userInteractive).async {
-                continuation.resume(returning: SecItemDelete(baseQuery(for: type)) == errSecSuccess)
+                let status = SecItemDelete(self.baseQuery(for: type))
+                            
+                if status == errSecSuccess {
+                    continuation.resume(returning: true)
+                } else {
+                    // 디버깅용 로그
+                    if let message = SecCopyErrorMessageString(status, nil) as String? {
+                        print("🔑 Keychain delete error: \(message)")
+                    } else {
+                        print("🔑 Keychain delete failed with status: \(status)")
+                    }
+                    continuation.resume(returning: false)
+                }
             }
         }
     }
